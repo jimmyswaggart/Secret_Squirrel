@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "56d73104-0a5b-4d62-a733-630ad4673bb0",
+		"name": "User Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Superuser token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"auth_token\", jsonData.AuthToken.token);"
+						],
+						"type": "text/javascript",
+						"id": "88fd93dd-52a2-4417-afda-7cacc564e21b"
+					}
+				}
+			],
+			"_postman_id": "20402a2d-6fc0-468a-9c7f-f361e3c145a8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\" : \"wsuperuser\", \"password\" : \"pumpkin1\" }",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://{{host}}/wfo/rest/core-api/auth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"_postman_id": "04bbc403-dfb6-4131-a4e9-cf57a6c08493",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Impact360AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data\" : {\r\n    \"attributes\" : {\r\n      \"person\" : {\r\n        \"address\" : {\r\n          \"addressLine1\" : \"795 E DRAGRAM\",\r\n          \"addressLine2\" : \"TUCSON AZ 85705\",\r\n          \"addressLine3\" : \"200 E MAIN ST\",\r\n          \"city\" : \"SEATTLE\",\r\n          \"stateName\" : \"WA 98104\",\r\n          \"zipCode\" : \"79053\",\r\n          \"country\" : \"USA\"\r\n        },\r\n        \"contact\" : {\r\n          \"email\" : \"mymail@i.com\",\r\n          \"desktopMessagingUsername\" : \"Admin1\",\r\n          \"homePhone\" : \"555-111-111\",\r\n          \"workPhone\" : \"057\",\r\n          \"cellPhone\" : \"111-111-111-111\"\r\n        },\r\n        \"firstName\" : \"Dinesh\",\r\n        \"lastName\" : \"Sampangi\",\r\n        \"middleInitial\" : \"B\",\r\n        \"ssn\" : \"XXX-XX-XXXX\",\r\n        \"birthDate\" : \"1988-03-10T22:00:00Z\"\r\n      },\r\n      \"user\" : {\r\n        \"username\" : \"username1\"\r\n      },\r\n      \"employeeType\" : \"Full-time\",\r\n      \"employeeNumber\" : \"1\",\r\n      \"startTime\" : \"2015-04-11T04:00:00Z\",\r\n      \"endTime\" : \"2020-04-11T23:59:00Z\",\r\n      \"isSupervisor\" : true,\r\n      \"isTeamLead\" : false\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/wfo/user-mgmt-api/v1/employees?organizationId=-3001",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"wfo",
+						"user-mgmt-api",
+						"v1",
+						"employees"
+					],
+					"query": [
+						{
+							"key": "organizationId",
+							"value": "-3001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Employees",
+			"_postman_id": "0981b73b-5bc9-4820-80e3-e08cc93622d4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Impact360AuthToken",
+						"type": "text",
+						"value": "4N6t99my2bm3y78Q"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\": \"1\",\r\n        \"type\": \"organization\",\r\n        \"attributes\": {\r\n            \"qmAnalyticsId\": 855000001,\r\n            \"parentId\": -3002,\r\n            \"name\": \"AdherenceReports\",\r\n            \"description\": \"Org used to test email workflow\",\r\n            \"timeZone\": \"America/Los_Angeles\",\r\n            \"weekStartDay\": \"Monday\",\r\n            \"location\": \"San Diego, CA\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://10.153.176.71/wfo/user-mgmt-api/v1/organizations/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Roles",
+			"_postman_id": "d1015f8b-f273-4508-a16f-0576edeb88b2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Impact360AuthToken",
+						"type": "text",
+						"value": "{{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "380",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data\" : [ {\r\n    \"type\" : \"accessRight\",\r\n    \"attributes\" : {\r\n      \"roleId\" : -12003,\r\n      \"scopes\" : [ {\r\n        \"scopeId\" : -3003,\r\n        \"scopeType\" : \"ORGANIZATION\"\r\n      } ]\r\n    }\r\n  }, {\r\n    \"type\" : \"accessRight\",\r\n    \"attributes\" : {\r\n      \"roleId\" : 2,\r\n      \"scopes\" : [ {\r\n        \"scopeId\" : -3003,\r\n        \"scopeType\" : \"GROUP\"\r\n      } ]\r\n    }\r\n  } ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{host}}/wfo/user-mgmt-api/v1/employees/51/roles"
+			},
+			"response": []
+		},
+		{
+			"name": "test",
+			"_postman_id": "ef8f2baa-f6ed-448b-b442-dfcf0cbe5d23",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "",
+				"description": "test"
+			},
+			"response": []
+		},
+		{
+			"name": "test Copy",
+			"_postman_id": "46c3abb3-cf62-4dc2-8a6d-d8123666883d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "",
+				"description": "test"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Roles",
+			"_postman_id": "4dcaebe7-ca17-4d17-a84d-fbbd691a4640",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Impact360AuthToken",
+						"type": "text",
+						"value": "{{auth_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data\" : {\r\n    \"attributes\" : {\r\n      \"person\" : {\r\n        \"address\" : {\r\n          \"addressLine1\" : \"795 E DRAGRAM\",\r\n          \"addressLine2\" : \"TUCSON AZ 85705\",\r\n          \"addressLine3\" : \"200 E MAIN ST\",\r\n          \"city\" : \"SEATTLE\",\r\n          \"stateName\" : \"WA 98104\",\r\n          \"zipCode\" : \"79053\",\r\n          \"country\" : \"USA\"\r\n        },\r\n        \"contact\" : {\r\n          \"email\" : \"mymail@i.com\",\r\n          \"desktopMessagingUsername\" : \"Admin1\",\r\n          \"homePhone\" : \"555-111-111\",\r\n          \"workPhone\" : \"057\",\r\n          \"cellPhone\" : \"111-111-111-111\"\r\n        },\r\n        \"firstName\" : \"Dinesh\",\r\n        \"lastName\" : \"Sampangi\",\r\n        \"middleInitial\" : \"B\",\r\n        \"ssn\" : \"XXX-XX-XXXX\",\r\n        \"birthDate\" : \"1988-03-10T22:00:00Z\"\r\n      },\r\n      \"user\" : {\r\n        \"username\" : \"username1\"\r\n      },\r\n      \"employeeType\" : \"Full-time\",\r\n      \"employeeNumber\" : \"1\",\r\n      \"startTime\" : \"2015-04-11T04:00:00Z\",\r\n      \"endTime\" : \"2020-04-11T23:59:00Z\",\r\n      \"isSupervisor\" : true,\r\n      \"isTeamLead\" : false\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://{{host}}/wfo/user-mgmt-api/v1/employees"
+			},
+			"response": []
+		},
+		{
+			"name": "UDF",
+			"_postman_id": "a4e40136-72c2-49a2-b494-23ac21e116c4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Impact360AuthToken",
+						"type": "text",
+						"value": "9aH41pPsq3Y0QwEt"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data\" : {\r\n    \"attributes\" : {\r\n      \"person\" : {\r\n        \"address\" : {\r\n          \"addressLine1\" : \"795 E DRAGRAM\",\r\n          \"addressLine2\" : \"TUCSON AZ 85705\",\r\n          \"addressLine3\" : \"200 E MAIN ST\",\r\n          \"city\" : \"SEATTLE\",\r\n          \"stateName\" : \"WA 98104\",\r\n          \"zipCode\" : \"79053\",\r\n          \"country\" : \"USA\"\r\n        },\r\n        \"contact\" : {\r\n          \"email\" : \"mymail@i.com\",\r\n          \"desktopMessagingUsername\" : \"Admin1\",\r\n          \"homePhone\" : \"555-111-111\",\r\n          \"workPhone\" : \"057\",\r\n          \"cellPhone\" : \"111-111-111-111\"\r\n        },\r\n        \"firstName\" : \"Dinesh\",\r\n        \"lastName\" : \"Sampangi\",\r\n        \"middleInitial\" : \"B\",\r\n        \"ssn\" : \"XXX-XX-XXXX\",\r\n        \"birthDate\" : \"1988-03-10T22:00:00Z\"\r\n      },\r\n      \"user\" : {\r\n        \"username\" : \"username1\"\r\n      },\r\n      \"employeeType\" : \"Full-time\",\r\n      \"employeeNumber\" : \"1\",\r\n      \"startTime\" : \"2015-04-11T04:00:00Z\",\r\n      \"endTime\" : \"2020-04-11T23:59:00Z\",\r\n      \"isSupervisor\" : true,\r\n      \"isTeamLead\" : false\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": "http://10.153.166.90/wfo/user-mgmt-api/v1/employees/51\\user-defined-fields"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT request 1",
+			"_postman_id": "86f6f1bb-994a-4745-aa48-e9edf1e15d84",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": ""
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "2c6e8d38-a04d-4278-8025-e01328a4fb20",
+			"key": "host",
+			"value": "10.153.176.71",
+			"type": "string"
+		}
+	]
+}
