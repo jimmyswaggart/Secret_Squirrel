@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "f675506a-88b9-4410-8507-2245aea40afe",
+		"name": "FeatureFlag_Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user token wsuper",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"auth_token\", jsonData.AuthToken.token);"
+						],
+						"type": "text/javascript",
+						"id": "084489af-f39d-4b8a-95e4-671ae77d41b8"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "25ffd056-e9c3-47c5-97c3-5ebe57c0d1a3"
+					}
+				}
+			],
+			"_postman_id": "3fe90c7c-8ea8-43a7-addd-fcf6698444e4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\" : \"wsuperuser\", \"password\" : \"pumpkin1\" }",
+					"options": {}
+				},
+				"url": "http://{{localhost}}/wfo/rest/core-api/auth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "ld1user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"auth_token\", jsonData.AuthToken.token);"
+						],
+						"type": "text/javascript",
+						"id": "131c97d1-a77c-4264-8f5c-19993f02a6c6"
+					}
+				}
+			],
+			"_postman_id": "b862e079-5bd6-4644-9d04-0fd2721eef8d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Profile",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"user\" : \"Tenant_A_Admin\", \"password\" : \"verint1!\" }",
+					"options": {}
+				},
+				"url": "http://{{ip}}/wfo/rest/core-api/auth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "userContext",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//script for SWT - System Web Token\r",
+							"\r",
+							"var sdk = require('postman-collection');\r",
+							"var crypto = require(\"crypto-js\");\r",
+							" \r",
+							"//get api key and key id\r",
+							"var APIKeyId = pm.environment.get(\"api_key_id\"),\r",
+							"    APIKey = pm.environment.get(\"api_key\");\r",
+							" \r",
+							"//get ISO date\r",
+							"function ISODateString(d) {\r",
+							"    function pad(n) {\r",
+							"        return n < 10 ? '0' + n : n\r",
+							"    }\r",
+							"    return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) + 'Z'\r",
+							"}\r",
+							" \r",
+							"//generate base64url by using cryptojs\r",
+							"function base64url(input) {\r",
+							"    var base64String = crypto.enc.Base64.stringify(input);\r",
+							"    return urlConvertBase64(base64String);\r",
+							"}\r",
+							" \r",
+							"//convert base64url to base64\r",
+							"function debase64url (str) {\r",
+							"  return (str + '==='.slice((str.length + 3) % 4))\r",
+							"    .replace(/-/g, '+')\r",
+							"    .replace(/_/g, '/')\r",
+							"}\r",
+							" \r",
+							"//convert to base 64 url\r",
+							"function urlConvertBase64(input) {\r",
+							"    var output = input.replace(/=+$/, '');\r",
+							"    output = output.replace(/\\+/g, '-');\r",
+							"    output = output.replace(/\\//g, '_');\r",
+							" \r",
+							"    return output;\r",
+							"}\r",
+							" \r",
+							"var replaceVars = function(string)\r",
+							"{\r",
+							"    return string.replace(/\\{\\{.+?\\}\\}/g, function(match)\r",
+							"    {\r",
+							"        var varName = match.substr(2, match.length - 4);\r",
+							"        var varValue = environment[varName] || globals[varName];\r",
+							"        return varValue ? replaceVars(varValue) : match; // recursive!\r",
+							"    });\r",
+							"};\r",
+							" \r",
+							" \r",
+							"// get 32 bytes random;\r",
+							"var random = crypto.lib.WordArray.random(16);\r",
+							" \r",
+							"//get path expanding any variables that exist\r",
+							"var fullPath = replaceVars(request.url);\r",
+							"var loc = new sdk.Url(fullPath);\r",
+							"var path = loc.getPath();\r",
+							" \r",
+							"//generate canonicalizedHeader\r",
+							"var ref = pm.request.headers.toObject(true);\r",
+							"var canonicalizedHeader = \"\";\r",
+							" \r",
+							"for (var key in ref) {\r",
+							" \r",
+							"    //only headers with \"verint-\" prefix can be used\r",
+							"    if (key.substring(0, 7).toLowerCase() != \"verint-\") continue;\r",
+							"     \r",
+							"    canonicalizedHeader += (key + \":\");\r",
+							"    var value = ref[key];\r",
+							" \r",
+							"    canonicalizedHeader += value;\r",
+							"    canonicalizedHeader += \"\\n\";\r",
+							"}\r",
+							" \r",
+							"//make canonicalizedHeader it lower case\r",
+							"canonicalizedHeader = canonicalizedHeader.toLowerCase();\r",
+							" \r",
+							"//get String to sign\r",
+							"var salt = base64url(random);\r",
+							"var method = pm.request.method;\r",
+							"var issuedAt = ISODateString(new Date());\r",
+							" \r",
+							"var stringToSign = salt + \"\\n\" + method + \"\\n\" + path + \"\\n\" + issuedAt + \"\\n\" + canonicalizedHeader + \"\\n\";\r",
+							" \r",
+							"var hash = crypto.HmacSHA256(stringToSign, crypto.enc.Base64.parse(debase64url(APIKey)));\r",
+							" \r",
+							"//get an signature\r",
+							"var signature = crypto.enc.Base64.stringify(hash);\r",
+							" \r",
+							"//String prefix\r",
+							"var verintAuthId = \"Vrnt-1-HMAC-SHA256\";\r",
+							" \r",
+							"//Generate Authorization Header Value\r",
+							"var authHeaderValue = verintAuthId + \" \" + \"salt=\" + salt + \",\" + \"iat=\" + issuedAt + \",\" + \"kid=\" + APIKeyId + \",\" + \"sig=\" + urlConvertBase64(signature);\r",
+							" \r",
+							"postman.setGlobalVariable(\"Authorization\", authHeaderValue);"
+						],
+						"type": "text/javascript",
+						"id": "093a39f5-923e-4d37-88b8-ed2eb901429f"
+					}
+				}
+			],
+			"_postman_id": "91790b9d-8bf6-4ba3-8d03-8587bfd092b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Impact360AuthToken",
+						"value": "{{auth_token}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Profile",
+						"value": "Launchdarkly",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "profile",
+						"value": "minimalusercontext",
+						"type": "text"
+					},
+					{
+						"key": "Verint-UserName",
+						"value": "tenantA",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {}
+				},
+				"url": "http://{{ip}}/wfo/rest/core-api/usercontext"
+			},
+			"response": []
+		},
+		{
+			"name": "no-rules-flag Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "10117917-dd4f-4ce2-9d94-6f825df48356"
+					}
+				}
+			],
+			"_postman_id": "69b320ae-ed88-493b-99f7-42b5e76bc5fa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Impact360AuthToken",
+						"value": "{{auth_token}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": "http://{{ip}}/featureflag-api/v1/featureflags/no-rules-flag-sample"
+			},
+			"response": []
+		},
+		{
+			"name": "all flags",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "2531ca29-8b93-4fe9-8447-fd6ba0bd9b91"
+					}
+				}
+			],
+			"_postman_id": "95b627e2-a89f-4629-aa90-99f492e313ff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Impact360AuthToken",
+						"value": "{{auth_token}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": "http://{{ip}}/featureflag-api/v1/featureflags"
+			},
+			"response": []
+		},
+		{
+			"name": "Org rules based",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "5b207224-7de9-45d7-b5aa-2c6c90ab6109"
+					}
+				}
+			],
+			"_postman_id": "d9c2f8f4-c667-4fac-8eca-ec14e8a83a34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Impact360AuthToken",
+						"value": "{{auth_token}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": "http://{{ip}}/featureflag-api/v1/featureflags/"
+			},
+			"response": []
+		}
+	]
+}
