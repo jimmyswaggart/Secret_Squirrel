@@ -205,7 +205,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d0bc55cb-907a-400e-bc31-0937da2b73f9",
+				"id": "609d6f8e-4a16-4612-94d2-01163339e555",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -215,15 +215,13 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f88b3af0-d82b-47df-9bd5-628d539bf062",
+				"id": "55424b37-1643-4eb0-b4e2-eac50b502b7f",
 				"type": "text/javascript",
 				"exec": [
-					"pm.test(\"Body matches string\", function () {",
-					"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");",
-					"});",
-					"pm.test(\"Your test name\", function () {",
-					"    var jsonData = pm.response.json();",
-					"    pm.expect(jsonData.value).to.eql(100);",
+					"pm.test(\"response should be okay to process\", function () {",
+					"    pm.response.to.not.be.error;",
+					"    pm.response.to.have.jsonBody(\"\");",
+					"    pm.response.to.not.have.jsonBody(\"error\");",
 					"});"
 				]
 			}
