@@ -170,11 +170,23 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "5b207224-7de9-45d7-b5aa-2c6c90ab6109",
 						"exec": [
 							""
 						],
-						"type": "text/javascript",
-						"id": "5b207224-7de9-45d7-b5aa-2c6c90ab6109"
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7177eb97-7cd1-4844-b89a-84efe878e69a",
+						"exec": [
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+							"    console.log(response.json());\r",
+							"});"
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
