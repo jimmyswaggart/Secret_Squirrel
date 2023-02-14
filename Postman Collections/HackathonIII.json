@@ -201,7 +201,7 @@
 					"variable": [
 						{
 							"key": "cartId",
-							"value": "WHR2OJCqLh1UZRFWN_Wbr"
+							"value": "p8CIxdyCLZ4iQ5EFjC5RK"
 						}
 					]
 				}
@@ -347,12 +347,12 @@
 	],
 	"variable": [
 		{
-			"id": "2fcdec7e-2ffe-4970-9f8d-a2d9eea90b82",
+			"id": "72fd6b24-5502-4898-b881-701f70f97b06",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "7f170dd5-2866-4737-9ea8-54f9497f7df6",
+			"id": "dda38b89-02ca-477e-881a-df1e403a5983",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
