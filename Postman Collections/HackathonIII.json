@@ -79,6 +79,20 @@
 		},
 		{
 			"name": "Get single product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42cb1a73-0016-40e9-a9eb-ba5ca81a164f",
+						"exec": [
+							"pm.test(\"Successful GET request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202, 200]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "69652cce-440a-480b-bfe7-1614974d1adb",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -304,12 +318,12 @@
 	],
 	"variable": [
 		{
-			"id": "ef4d4018-ce8c-4b69-9eca-ff5e81651873",
+			"id": "519e9b41-500f-43d9-be52-8409843aaf2a",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "603d0fa6-712f-4bf8-a4c3-0aed26272294",
+			"id": "67198b9a-b876-4155-af7f-a1644f2595a9",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
