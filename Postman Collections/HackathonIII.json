@@ -13,7 +13,8 @@
 					"script": {
 						"id": "dda930a2-57f1-4662-9430-db19b81da395",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {    pm.response.to.have.status(200);});\r",
+							"pm.test(\"Sucessful get\", function () \r",
+							"{    pm.response.to.have.status(200);});\r",
 							"\r",
 							"\r",
 							""
@@ -347,12 +348,12 @@
 	],
 	"variable": [
 		{
-			"id": "81903642-dc23-4a89-bac3-a5c4cace54de",
+			"id": "93939e58-4dd2-486c-bc65-eb42a13d4fc3",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "e405d006-709c-4b60-8ae1-013fdcbcb339",
+			"id": "45a06f3d-5533-4403-9ee4-e75bb00e6ec5",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
