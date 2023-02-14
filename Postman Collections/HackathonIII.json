@@ -257,7 +257,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"productId\": 3674\r\n    },\r\n{\r\n        \"productId\": 4641\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n        \"productId\": 3674\r\n    },\r\n{\r\n        \"productId\": 1225\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -347,12 +347,12 @@
 	],
 	"variable": [
 		{
-			"id": "8484ccfe-6cc1-431c-928d-241b2e4d7c05",
+			"id": "2fcdec7e-2ffe-4970-9f8d-a2d9eea90b82",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "a0057b51-6ac7-4a3d-8fee-a3380eff5a8b",
+			"id": "7f170dd5-2866-4737-9ea8-54f9497f7df6",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
