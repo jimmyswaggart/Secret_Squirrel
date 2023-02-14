@@ -254,7 +254,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "215c2ab9-466a-42f2-aaf9-f43ce54a1399",
+				"id": "8298f55a-1ac5-40ed-b1a5-0be7ef3b4967",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -264,12 +264,12 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "fdde9206-d384-468a-be39-797881ece3c6",
+				"id": "eb4a4793-3075-416a-90e4-aa44754ad3b3",
 				"type": "text/javascript",
 				"exec": [
 					"pm.test(\"Your test name\", function () {",
 					"    var jsonData = pm.response.json();",
-					"    pm.expect(jsonData.value).to.eql(100);",
+					"    pm.expect(jsonData.value).to.eql(200);",
 					"});"
 				]
 			}
@@ -277,12 +277,12 @@
 	],
 	"variable": [
 		{
-			"id": "1b9ffeb5-d28c-4951-a574-2b52fcf541bf",
+			"id": "0e76af75-68d1-44f4-b272-11549243f961",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "5fbba419-9d83-451c-8b0b-99ee9bf6d81c",
+			"id": "2c3c903f-08ad-4da8-aac8-9d7f07536b2c",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
