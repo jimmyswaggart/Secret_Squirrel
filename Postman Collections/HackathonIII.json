@@ -7,7 +7,7 @@
 	"item": [
 		{
 			"name": "API Status",
-			"_postman_id": "4a28298f-b87e-497e-95af-1f0e03c58343",
+			"id": "4a28298f-b87e-497e-95af-1f0e03c58343",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -20,7 +20,7 @@
 		},
 		{
 			"name": "Get all Products",
-			"_postman_id": "667d9fb7-c7eb-4249-b859-79d011262c45",
+			"id": "667d9fb7-c7eb-4249-b859-79d011262c45",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -52,7 +52,7 @@
 		},
 		{
 			"name": "Get single product",
-			"_postman_id": "69652cce-440a-480b-bfe7-1614974d1adb",
+			"id": "69652cce-440a-480b-bfe7-1614974d1adb",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -72,8 +72,7 @@
 						{
 							"id": "8ab7912c-955b-4b67-88ed-a48bd04d5848",
 							"key": "productId",
-							"value": null,
-							"type": "any"
+							"value": null
 						}
 					]
 				}
@@ -82,7 +81,7 @@
 		},
 		{
 			"name": "Get contents of cart",
-			"_postman_id": "cff59870-c43c-460c-9396-9372c191c730",
+			"id": "cff59870-c43c-460c-9396-9372c191c730",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -102,8 +101,7 @@
 					"variable": [
 						{
 							"key": "cartId",
-							"value": "GIXr8yoz3MTsEhSFcJyEj",
-							"type": "string"
+							"value": "GIXr8yoz3MTsEhSFcJyEj"
 						}
 					]
 				}
@@ -112,7 +110,7 @@
 		},
 		{
 			"name": "Get cart",
-			"_postman_id": "1118e0f7-2528-407d-8502-6e20357c9c48",
+			"id": "1118e0f7-2528-407d-8502-6e20357c9c48",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -132,8 +130,7 @@
 					"variable": [
 						{
 							"key": "cartId",
-							"value": "WHR2OJCqLh1UZRFWN_Wbr",
-							"type": "string"
+							"value": "WHR2OJCqLh1UZRFWN_Wbr"
 						}
 					]
 				}
@@ -142,7 +139,7 @@
 		},
 		{
 			"name": "add to cart",
-			"_postman_id": "206dd5b8-ea97-4c62-8f81-80b208f03dab",
+			"id": "206dd5b8-ea97-4c62-8f81-80b208f03dab",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -171,8 +168,7 @@
 					"variable": [
 						{
 							"key": "cartId",
-							"value": "WHR2OJCqLh1UZRFWN_Wbr",
-							"type": "string"
+							"value": "WHR2OJCqLh1UZRFWN_Wbr"
 						}
 					]
 				}
@@ -181,7 +177,7 @@
 		},
 		{
 			"name": "Create an order",
-			"_postman_id": "67ccd7c1-e497-42eb-9ce9-ae7849918da7",
+			"id": "67ccd7c1-e497-42eb-9ce9-ae7849918da7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -211,8 +207,7 @@
 						{
 							"id": "e500d22e-a284-431b-a706-9a635bcf1382",
 							"key": "cartId",
-							"value": "WHR2OJCqLh1UZRFWN_Wbr",
-							"type": "string"
+							"value": "WHR2OJCqLh1UZRFWN_Wbr"
 						}
 					]
 				}
@@ -221,7 +216,7 @@
 		},
 		{
 			"name": "Register API client",
-			"_postman_id": "fd0d8a18-a857-4dd4-9399-71dd30c09a12",
+			"id": "fd0d8a18-a857-4dd4-9399-71dd30c09a12",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -243,7 +238,7 @@
 		},
 		{
 			"name": "create cart",
-			"_postman_id": "8b29f1ff-cd8e-4a42-a1ec-0bcd19477e32",
+			"id": "8b29f1ff-cd8e-4a42-a1ec-0bcd19477e32",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -259,7 +254,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1dcbee42-b0de-4be1-9359-0a7cb0b0f1b3",
+				"id": "215c2ab9-466a-42f2-aaf9-f43ce54a1399",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -269,23 +264,25 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "52ab84e3-4004-4af1-87d7-a3a036a44e77",
+				"id": "fdde9206-d384-468a-be39-797881ece3c6",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.test(\"Your test name\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.value).to.eql(100);",
+					"});"
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "1b48db16-e9ca-4c1b-91a9-7db79ffb5996",
+			"id": "1b9ffeb5-d28c-4951-a574-2b52fcf541bf",
 			"key": "baseURL",
-			"value": "http://simple-grocery-store-api.online",
-			"type": "string"
+			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "626014de-883d-463b-b814-8f685eb2d878",
+			"id": "5fbba419-9d83-451c-8b0b-99ee9bf6d81c",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
