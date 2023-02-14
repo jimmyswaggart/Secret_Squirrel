@@ -7,6 +7,18 @@
 	"item": [
 		{
 			"name": "API Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fc75bee-ea7b-411b-bc5c-8940adebfc9d",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "4a28298f-b87e-497e-95af-1f0e03c58343",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -277,12 +289,12 @@
 	],
 	"variable": [
 		{
-			"id": "86f3810d-efa3-414f-a4e1-6e4fe383cd3f",
+			"id": "cfbab0a3-4736-4570-9e91-f406ceb4c93d",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "c3ef549e-b60f-4d39-8b12-6653fc2391e8",
+			"id": "9fb52b26-4708-47d7-962f-205a3c32167f",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
