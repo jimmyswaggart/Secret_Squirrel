@@ -189,14 +189,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/carts/:cartId/items",
+					"raw": "{{baseURL}}/carts/:cartId",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
 						"carts",
-						":cartId",
-						"items"
+						":cartId"
 					],
 					"variable": [
 						{
@@ -347,12 +346,12 @@
 	],
 	"variable": [
 		{
-			"id": "d550d640-4f38-4027-80a9-ed50a27bf619",
+			"id": "b5486603-c886-4956-bd86-f4523cb91dab",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "3e3717cc-f96d-4841-b8af-fd4b7753c307",
+			"id": "f53776e8-1ad9-46b6-84a3-2015e31c893a",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
