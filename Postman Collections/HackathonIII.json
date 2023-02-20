@@ -285,6 +285,84 @@
 		},
 		{
 			"name": "Register API client",
+			"id": "80e379a0-4d19-4618-8ef1-5a8d8f911857",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"productId\": 3674\r\n    },\r\n{\r\n        \"productId\": 1225\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/carts/:cartId/items",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items"
+					],
+					"variable": [
+						{
+							"id": "d5df183a-17ce-4ff3-a8e4-3d29e429a3a8",
+							"key": "cartId",
+							"value": "p8CIxdyCLZ4iQ5EFjC5RK"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an order Copy",
+			"id": "32f961b7-2704-49f1-bd79-60e7e10643e0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"productId\": 3674\r\n    },\r\n{\r\n        \"productId\": 1225\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/carts/:cartId/items",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items"
+					],
+					"variable": [
+						{
+							"id": "4e92fb0b-004b-4692-ae4a-ec94d1c73443",
+							"key": "cartId",
+							"value": "p8CIxdyCLZ4iQ5EFjC5RK"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register API client",
 			"id": "fd0d8a18-a857-4dd4-9399-71dd30c09a12",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -346,12 +424,12 @@
 	],
 	"variable": [
 		{
-			"id": "b5486603-c886-4956-bd86-f4523cb91dab",
+			"id": "6b0afe3c-656d-44eb-a057-8539aeb4e041",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "f53776e8-1ad9-46b6-84a3-2015e31c893a",
+			"id": "9ba59ee2-e522-4a9a-923a-74a56690e120",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
