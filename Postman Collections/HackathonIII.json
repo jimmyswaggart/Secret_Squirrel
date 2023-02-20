@@ -285,7 +285,7 @@
 			"response": []
 		},
 		{
-			"name": "Create an order Copy",
+			"name": "Create an order",
 			"id": "32f961b7-2704-49f1-bd79-60e7e10643e0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -386,12 +386,12 @@
 	],
 	"variable": [
 		{
-			"id": "242483bb-4de8-41c8-9cd0-f72ea2121098",
+			"id": "4ca53c07-fc08-4502-a505-cc6d159439bc",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "03855936-54f5-44f0-9636-43ba6ab59a83",
+			"id": "531d89bc-b182-4ea8-b46a-70b3eb371a7d",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
