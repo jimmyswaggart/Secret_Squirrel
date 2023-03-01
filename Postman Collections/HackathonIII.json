@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "82babc07-d530-41f2-96f6-368d8ffc3ecc",
-		"name": "API training",
+		"name": "Simple Grocery Store API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -344,12 +344,12 @@
 	],
 	"variable": [
 		{
-			"id": "3d291d58-a1a5-4851-ae6c-5e1baca5b017",
+			"id": "d93566b9-cccd-425f-81d7-a29f4bbc90e6",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "e584e317-31a2-4bca-8383-5aad9d787a92",
+			"id": "0efe4013-fafa-401e-b6d5-86682e0484cf",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
