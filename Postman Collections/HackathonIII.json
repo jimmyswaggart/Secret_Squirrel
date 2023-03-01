@@ -249,6 +249,12 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "dc0b215fa2fdb49ddb0936d98e1a9e6e47a62966d8ea09f5167a5f9530828060"
+					}
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -333,12 +339,12 @@
 	],
 	"variable": [
 		{
-			"id": "7039d80b-4368-4338-9685-e60f66103898",
+			"id": "55f30432-f384-4e73-bec6-404199699335",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "13670ba1-2150-4fd1-8255-974e816decb2",
+			"id": "495dd608-113e-4990-92bb-73e53c2f1860",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
