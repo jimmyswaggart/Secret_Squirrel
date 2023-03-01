@@ -250,34 +250,23 @@
 			},
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer{{accesstoken}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"productId\": 3674\r\n    },\r\n{\r\n        \"productId\": 1225\r\n    }\r\n]",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/carts/:cartId/items",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"carts",
-						":cartId",
-						"items"
-					],
-					"variable": [
-						{
-							"id": "4e92fb0b-004b-4692-ae4a-ec94d1c73443",
-							"key": "cartId",
-							"value": "p8CIxdyCLZ4iQ5EFjC5RK"
-						}
-					]
-				}
+				"url": "{{baseURL}}/orders"
 			},
 			"response": []
 		},
@@ -344,12 +333,12 @@
 	],
 	"variable": [
 		{
-			"id": "1d10c323-93f0-474f-8b10-ccde83c43b87",
+			"id": "7039d80b-4368-4338-9685-e60f66103898",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "1e83133c-f796-4c32-aac9-70ceefb0dc7f",
+			"id": "13670ba1-2150-4fd1-8255-974e816decb2",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
