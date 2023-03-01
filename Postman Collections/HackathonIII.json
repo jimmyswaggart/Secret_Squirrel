@@ -278,28 +278,6 @@
 			"response": []
 		},
 		{
-			"name": "Register API client",
-			"id": "fd0d8a18-a857-4dd4-9399-71dd30c09a12",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n   \"clientName\": \"Postman on Valentin's computer\",\r\n   \"clientEmail\": \"valentin1889@example.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "{{baseURL}}/api-clients"
-			},
-			"response": []
-		},
-		{
 			"name": "create cart",
 			"id": "8b29f1ff-cd8e-4a42-a1ec-0bcd19477e32",
 			"protocolProfileBehavior": {
@@ -340,12 +318,12 @@
 	],
 	"variable": [
 		{
-			"id": "a87418f6-c5b4-4506-9ad7-e3f04c166733",
+			"id": "b7a670f4-d85e-45b3-8ca5-ec130d0410e0",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "64924867-c12c-40db-a314-a971d6c3ebe2",
+			"id": "57e481fa-1f28-41a4-b6c3-12127a2eba0f",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
