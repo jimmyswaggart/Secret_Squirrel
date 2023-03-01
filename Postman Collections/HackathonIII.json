@@ -58,7 +58,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/products?results=a&coffee=coffee",
+					"raw": "{{baseURL}}/products?results=a",
 					"host": [
 						"{{baseURL}}"
 					],
@@ -72,7 +72,8 @@
 						},
 						{
 							"key": "coffee",
-							"value": "coffee"
+							"value": "coffee",
+							"disabled": true
 						}
 					]
 				}
@@ -344,12 +345,12 @@
 	],
 	"variable": [
 		{
-			"id": "29a84ff9-ab2c-4b10-be4f-c7a2a2880f02",
+			"id": "bd5757a6-d328-4761-9286-90286d88737b",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "d872a56a-acda-4a10-b3da-30ee02ea3e06",
+			"id": "f1f1fd9a-b56f-479e-81f5-0cde87d98289",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
