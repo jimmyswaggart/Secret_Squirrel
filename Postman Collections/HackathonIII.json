@@ -222,35 +222,24 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "dc0b215fa2fdb49ddb0936d98e1a9e6e47a62966d8ea09f5167a5f9530828060"
+					}
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"productId\": 3674\r\n    },\r\n{\r\n        \"productId\": 1225\r\n    }\r\n]",
+					"raw": "{\r\n   \"clientName\": \"Postman on Valentin's computer\",\r\n   \"clientEmail\": \"valentin18888@example.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/carts/:cartId/items",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"carts",
-						":cartId",
-						"items"
-					],
-					"variable": [
-						{
-							"id": "d5df183a-17ce-4ff3-a8e4-3d29e429a3a8",
-							"key": "cartId",
-							"value": "p8CIxdyCLZ4iQ5EFjC5RK"
-						}
-					]
-				}
+				"url": "{{baseURL}}/api-clients"
 			},
 			"response": []
 		},
@@ -351,12 +340,12 @@
 	],
 	"variable": [
 		{
-			"id": "ff59c9a0-4140-466a-bf1e-daa17dc69ce9",
+			"id": "91eb6327-3add-4c84-9f95-6d3e79a10f5e",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "3746a39f-a81b-49e9-951b-3c6959f7b034",
+			"id": "81f7b0eb-a488-4f0e-9791-dabd6832cd0f",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
