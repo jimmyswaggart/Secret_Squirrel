@@ -256,7 +256,7 @@
 						"token": "dc0b215fa2fdb49ddb0936d98e1a9e6e47a62966d8ea09f5167a5f9530828060"
 					}
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
@@ -340,12 +340,12 @@
 	],
 	"variable": [
 		{
-			"id": "91eb6327-3add-4c84-9f95-6d3e79a10f5e",
+			"id": "a87418f6-c5b4-4506-9ad7-e3f04c166733",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "81f7b0eb-a488-4f0e-9791-dabd6832cd0f",
+			"id": "64924867-c12c-40db-a314-a971d6c3ebe2",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
