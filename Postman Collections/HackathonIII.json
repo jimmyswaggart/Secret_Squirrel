@@ -100,6 +100,12 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "dc0b215fa2fdb49ddb0936d98e1a9e6e47a62966d8ea09f5167a5f9530828060"
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -113,9 +119,8 @@
 					],
 					"variable": [
 						{
-							"id": "8ab7912c-955b-4b67-88ed-a48bd04d5848",
 							"key": "productId",
-							"value": null
+							"value": "2585"
 						}
 					]
 				}
@@ -339,12 +344,12 @@
 	],
 	"variable": [
 		{
-			"id": "55f30432-f384-4e73-bec6-404199699335",
+			"id": "29a84ff9-ab2c-4b10-be4f-c7a2a2880f02",
 			"key": "baseURL",
 			"value": "http://simple-grocery-store-api.online"
 		},
 		{
-			"id": "495dd608-113e-4990-92bb-73e53c2f1860",
+			"id": "d872a56a-acda-4a10-b3da-30ee02ea3e06",
 			"key": "accesstoken",
 			"value": "your access token",
 			"type": "string"
